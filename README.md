@@ -134,6 +134,53 @@ JavaScriptの実行コンテキスト:"Script","Module"
 <a href="#anchor4">
 ### 値の評価と表示
 </a>
+
+- const: 再代入できない変数を宣言
+- letは、再代入ができる変数を宣言
+- varは、再代入ができる変数を宣言できるが、いくつかの問題が知られている
+
+- 変数の名前（識別子）には利用できる名前のルールがある
+
+- 変数を宣言する場合には、まずconstで定義できないかを検討し、できない場合はletを使うことを推奨しています。
+
+#### const
+
+  ```
+  const 変数名 = 初期値;
+  ```
+
+  - 再代入できない変数を定義するキーワードです。再代入を禁止することで、ミスから発生するバグを減らすことが期待できます。 
+  -  定義方法
+  ```
+  const bookTitle = "JavaScript Primer",
+        bookCategory = "プログラミング";
+  ```
+  ```
+  const bookTitle = "JavaScript Primer";
+  const bookCategory = "プログラミング";
+  ```
+  - 再代入時のエラー
+  ```
+  const bookTitle = "JavaScript Primer",
+  const bookTitle = "JavaScript";
+
+  // SyntaxError: Identifier 'bookTitle' has already been declared
+  ```
+
+
+#### let
+- 値の再代入が可能な変数を宣言
+  
+  ```
+  let bookTitle = "JavaScript Primer";
+  bookTitle = "JavaScript";
+
+  console.log(bookTitle);
+  ```
+
+- letはconstとは異なり、初期値を指定しない変数も定義できる。 
+- 初期値が指定されなかった変数はデフォルト値としてundefinedという値で初期化されます  
+
 ### データ型とリテラル
 ### 演算子
 ### 暗黙的な型変換
